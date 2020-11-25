@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Mirror;
 
 [System.Serializable]
 public struct CameraBoundaries
@@ -14,42 +16,46 @@ public struct CameraBoundaries
     public float boundariesZNegative;
 }
 
-[System.Serializable]
-public struct CameraData
-{
-    public float cameraSpeed;
-}
-
-public class CameraController : MonoBehaviour
+public class CameraController : NetworkBehaviour
 {
 
     public CameraBoundaries cameraBoundaries;
-    public CameraData cameraData;
-    public Camera cam;
 
-    void Update()
+    public Camera _actualCamera;
+
+    private Vector3 _moveDirection;
+    private Vector3 _moveTarget;
+
+    public override void OnStartLocalPlayer()
     {
-        Move();
+        _actualCamera = Camera.main;
     }
 
-    void Move()
+    /// <summary>
+    /// Sets the direction of movement based on the input provided by the player
+    /// </summary>
+    /// <param name="context"></param>
+    public void OnMove(InputAction.CallbackContext context)
     {
-        float xInput = Input.GetAxis("Vertical");
-        float zInput = Input.GetAxis("Horizontal");
 
-        Vector3 dir = transform.forward * zInput + transform.right * -xInput;
+        if (!isLocalPlayer)
+            return;
 
-        transform.position += dir * cameraData.cameraSpeed * Time.deltaTime;
+        if (context.phase == InputActionPhase.Started)
+            return;
 
-        Vector3.Lerp(transform.position, dir, cameraData.cameraSpeed * Time.deltaTime);
+        //Read the input value that is being sent by the Input System
+        Vector2 value = context.ReadValue<Vector2>();
 
-        transform.position = new Vector3
-        (
-            Mathf.Clamp(transform.position.x, cameraBoundaries.boundariesXNegative, cameraBoundaries.boundariesXPositive),
-            Mathf.Clamp(transform.position.y, cameraBoundaries.boundariesYNegative, cameraBoundaries.boundariesYPositive),
-            Mathf.Clamp(transform.position.z, cameraBoundaries.boundariesZNegative, cameraBoundaries.boundariesZPositive)
-        );
+        //Store the value as a Vector3, making sure to move the Y input on the Z axis.
+        _moveDirection = new Vector3(value.x, 0, value.y);
+    }
 
+    private void LateUpdate()
+    {
+        _moveTarget += (_actualCamera.transform.parent.gameObject.transform.forward * _moveDirection.z + _actualCamera.transform.parent.gameObject.transform.right * _moveDirection.x) * Time.fixedDeltaTime * 16f;
 
+        //Lerp  the camera to a new move target position
+        _actualCamera.transform.parent.gameObject.transform.position = Vector3.Lerp(_actualCamera.transform.parent.gameObject.transform.position, _moveTarget, Time.deltaTime * 16f);
     }
 }

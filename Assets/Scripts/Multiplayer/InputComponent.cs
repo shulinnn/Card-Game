@@ -1,20 +1,16 @@
 ﻿using UnityEngine;
 using Mirror;
+using UnityEngine.InputSystem;
 
 namespace Assets.Scripts.Multiplayer
 {
     public class InputComponent : NetworkBehaviour
     {
 
-        public static System.Action<NetworkIdentity, int> OnCardUsage;
-
-        [SerializeField]
-        private KeyCode[] KeyCodes;
-
-        private void Update()
+        public void OnCardUse(InputAction.CallbackContext callbackContext)
         {
-            if (!isLocalPlayer)
-                return;
+            Debug.Log("Card Used.");
+            Debug.Log(callbackContext.action);
         }
 
     }
