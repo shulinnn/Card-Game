@@ -9,8 +9,13 @@ namespace Assets.Scripts.Multiplayer
 
         public void OnCardUse(InputAction.CallbackContext callbackContext)
         {
-            Debug.Log("Card Used.");
-            Debug.Log(callbackContext.action);
+
+            if(callbackContext.phase == InputActionPhase.Performed)
+            {
+
+                Debug.Log("Card Used.");
+                Debug.Log(callbackContext.action.name);
+            }
         }
 
     }
