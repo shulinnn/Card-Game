@@ -20,7 +20,6 @@ public class CameraController : NetworkBehaviour
     public CameraBoundaries cameraBoundaries;
 
     public Camera _actualCamera;
-
     public Transform _actualContainer;
 
     private Vector3 _moveDirection;
@@ -54,8 +53,12 @@ public class CameraController : NetworkBehaviour
         _moveDirection = new Vector3(value.x, 0, value.y);
     }
     [ClientCallback]
-    private void LateUpdate()
+    private void Update()
     {
+
+        if (!isLocalPlayer)
+            return;
+
         _moveTarget += (_actualContainer.forward * _moveDirection.z + _actualContainer.right * _moveDirection.x) * Time.fixedDeltaTime * 16f;
 
         //Lerp  the camera to a new move target position
