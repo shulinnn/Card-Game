@@ -192,6 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 893b9032d48fae3448456582e638b53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   cameraBoundaries:
     boundariesYPositive: 70
     boundariesXPositive: 70
@@ -215,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  cardKeyCodes: 310000003200000033000000340000003500000036000000
 --- !u!114 &-2212949795250136987
 MonoBehaviour:
   m_ObjectHideFlags: 0
