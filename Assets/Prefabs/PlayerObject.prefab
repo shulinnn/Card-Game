@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: -3866182395971499608}
   - component: {fileID: 3850374103390748062}
   - component: {fileID: -45237723505231396}
+  - component: {fileID: -2212949795250136987}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Player
@@ -276,18 +277,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f1e4825e-c071-4e55-99cd-2d0723204bd3
     m_ActionName: Player/Camera_Move[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2ac6b377-bc14-4f51-b58a-9818723519f6
-    m_ActionName: Player/Camera_Rotate[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b6f83f51-ab67-4749-babd-69ea4a8d7c39
-    m_ActionName: Player/Camera_Rotate_Toggle[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: bcf0b02b-f86c-4565-a90c-2cbc6e833190
-    m_ActionName: Player/Camera_Zoom[/Mouse/scroll]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -325,6 +314,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebc18bb3c41d33049ac640d9449bdc52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &-2212949795250136987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758965884315555710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9cfb683277769f44afd3e17356c1c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0

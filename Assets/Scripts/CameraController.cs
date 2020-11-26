@@ -21,18 +21,23 @@ public class CameraController : NetworkBehaviour
 
     public Camera _actualCamera;
 
+    public Transform _actualContainer;
+
     private Vector3 _moveDirection;
     private Vector3 _moveTarget;
 
-    public override void OnStartLocalPlayer()
+    public override void OnStartClient()
     {
         _actualCamera = Camera.main;
+        _actualContainer = _actualCamera.transform.parent;
     }
 
     /// <summary>
     /// Sets the direction of movement based on the input provided by the player
     /// </summary>
     /// <param name="context"></param>
+    /// 
+    [Client]
     public void OnMove(InputAction.CallbackContext context)
     {
 
@@ -48,12 +53,12 @@ public class CameraController : NetworkBehaviour
         //Store the value as a Vector3, making sure to move the Y input on the Z axis.
         _moveDirection = new Vector3(value.x, 0, value.y);
     }
-
+    [ClientCallback]
     private void LateUpdate()
     {
-        _moveTarget += (_actualCamera.transform.parent.gameObject.transform.forward * _moveDirection.z + _actualCamera.transform.parent.gameObject.transform.right * _moveDirection.x) * Time.fixedDeltaTime * 16f;
+        _moveTarget += (_actualContainer.forward * _moveDirection.z + _actualContainer.right * _moveDirection.x) * Time.fixedDeltaTime * 16f;
 
         //Lerp  the camera to a new move target position
-        _actualCamera.transform.parent.gameObject.transform.position = Vector3.Lerp(_actualCamera.transform.parent.gameObject.transform.position, _moveTarget, Time.deltaTime * 16f);
+        _actualContainer.position = Vector3.Lerp(_actualContainer.position, _moveTarget, Time.deltaTime * 16f);
     }
 }
