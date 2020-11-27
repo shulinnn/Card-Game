@@ -1,12 +1,15 @@
-﻿namespace Assets.Scripts.Multiplayer
+﻿using UnityEngine;
+
+namespace Assets.Scripts.Multiplayer
 {
     [System.Serializable]
     public struct CameraBoundaries
     {
-        public float boundariesYPositive;
+        [Header("Positive Boundaries")]
+        public float boundariesXPositive;
         public float boundariesZPositive;
-
-        public float boundariesYNegative;
+        [Header("Negative Boundaries")]
+        public float boundariesXNegative;
         public float boundariesZNegative;
     }
 }

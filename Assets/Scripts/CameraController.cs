@@ -9,11 +9,14 @@ namespace Assets.Scripts
 
         public CameraBoundaries cameraBoundaries;
         public CameraData cameraData;
-        private Camera cam => Camera.main;
+        [SerializeField]
+        private Camera cam;
+        [SerializeField]
         private Transform camContainer;
 
         private void Start()
         {
+            cam = Camera.main;
             camContainer = cam.transform.parent;
         }
         void Update()
@@ -30,17 +33,17 @@ namespace Assets.Scripts
             float xInput = Input.GetAxis("Vertical");
             float zInput = Input.GetAxis("Horizontal");
 
-            Vector3 dir = camContainer.transform.forward * xInput + -camContainer.transform.right * -zInput;
+            Vector3 dir = camContainer.forward * xInput + -camContainer.right * -zInput;
 
             camContainer.transform.position += dir * cameraData.cameraSpeed * Time.deltaTime;
 
-            Vector3.Lerp(camContainer.transform.position, dir, cameraData.cameraSpeed * Time.deltaTime);
+            Vector3.Lerp(camContainer.position, dir, cameraData.cameraSpeed * Time.deltaTime);
 
-            transform.position = new Vector3
+            camContainer.position = new Vector3
             (
-                Mathf.Clamp(camContainer.transform.position.x, cameraBoundaries.boundariesXNegative, cameraBoundaries.boundariesXPositive),
-                Mathf.Clamp(camContainer.transform.position.y, cameraBoundaries.boundariesYNegative, cameraBoundaries.boundariesYPositive),
-                Mathf.Clamp(camContainer.transform.position.z, cameraBoundaries.boundariesZNegative, cameraBoundaries.boundariesZPositive)
+                Mathf.Clamp(camContainer.position.x, cameraBoundaries.boundariesXNegative, cameraBoundaries.boundariesXPositive),
+                0f,
+                Mathf.Clamp(camContainer.position.z, cameraBoundaries.boundariesZNegative, cameraBoundaries.boundariesZPositive)
             );
 
 

@@ -140,7 +140,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4758965884315555710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.29, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1800731409679747021}
@@ -195,14 +195,14 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   cameraBoundaries:
-    boundariesYPositive: 70
-    boundariesXPositive: 70
+    boundariesXPositive: 55
     boundariesZPositive: 70
-    boundariesYNegative: -70
-    boundariesXNegative: -70
+    boundariesXNegative: -55
     boundariesZNegative: -70
   cameraData:
     cameraSpeed: 20
+  cam: {fileID: 0}
+  camContainer: {fileID: 0}
 --- !u!114 &-45237723505231396
 MonoBehaviour:
   m_ObjectHideFlags: 0
