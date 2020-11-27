@@ -2,45 +2,48 @@
 using Mirror;
 using Assets.Scripts.Multiplayer;
 
-public class CameraController : NetworkBehaviour
+namespace Assets.Scripts
 {
-
-    public CameraBoundaries cameraBoundaries;
-    public CameraData cameraData;
-    private Camera cam => Camera.main;
-    private Transform camContainer;
-
-    private void Start()
-    {
-        camContainer = cam.transform.parent;
-    }
-    void Update()
+    public class CameraController : NetworkBehaviour
     {
 
-        if (!isLocalPlayer)
-            return;
+        public CameraBoundaries cameraBoundaries;
+        public CameraData cameraData;
+        private Camera cam => Camera.main;
+        private Transform camContainer;
 
-        Move();
-    }
+        private void Start()
+        {
+            camContainer = cam.transform.parent;
+        }
+        void Update()
+        {
 
-    void Move()
-    {
-        float xInput = Input.GetAxis("Vertical");
-        float zInput = Input.GetAxis("Horizontal");
+            if (!isLocalPlayer)
+                return;
 
-        Vector3 dir = camContainer.transform.forward * xInput + -camContainer.transform.right * -zInput;
+            Move();
+        }
 
-        camContainer.transform.position += dir * cameraData.cameraSpeed * Time.deltaTime;
+        void Move()
+        {
+            float xInput = Input.GetAxis("Vertical");
+            float zInput = Input.GetAxis("Horizontal");
 
-        Vector3.Lerp(camContainer.transform.position, dir, cameraData.cameraSpeed * Time.deltaTime);
+            Vector3 dir = camContainer.transform.forward * xInput + -camContainer.transform.right * -zInput;
 
-        transform.position = new Vector3
-        (
-            Mathf.Clamp(camContainer.transform.position.x, cameraBoundaries.boundariesXNegative, cameraBoundaries.boundariesXPositive),
-            Mathf.Clamp(camContainer.transform.position.y, cameraBoundaries.boundariesYNegative, cameraBoundaries.boundariesYPositive),
-            Mathf.Clamp(camContainer.transform.position.z, cameraBoundaries.boundariesZNegative, cameraBoundaries.boundariesZPositive)
-        );
+            camContainer.transform.position += dir * cameraData.cameraSpeed * Time.deltaTime;
+
+            Vector3.Lerp(camContainer.transform.position, dir, cameraData.cameraSpeed * Time.deltaTime);
+
+            transform.position = new Vector3
+            (
+                Mathf.Clamp(camContainer.transform.position.x, cameraBoundaries.boundariesXNegative, cameraBoundaries.boundariesXPositive),
+                Mathf.Clamp(camContainer.transform.position.y, cameraBoundaries.boundariesYNegative, cameraBoundaries.boundariesYPositive),
+                Mathf.Clamp(camContainer.transform.position.z, cameraBoundaries.boundariesZNegative, cameraBoundaries.boundariesZPositive)
+            );
 
 
+        }
     }
 }

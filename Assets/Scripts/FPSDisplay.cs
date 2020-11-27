@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FPSDisplay : MonoBehaviour
+namespace Assets.Scripts
 {
-    public int avgFrameRate;
-    public Text display_Text;
-
-    public void Update()
+    public class FPSDisplay : MonoBehaviour
     {
-        float current = 0;
-        current = Time.frameCount / Time.time;
-        avgFrameRate = (int)current;
-        display_Text.text = avgFrameRate.ToString() + " FPS";
+        public int avgFrameRate;
+        public Text display_Text;
+
+        public void Update()
+        {
+            float current = 0;
+            current = Time.frameCount / Time.time;
+            avgFrameRate = (int)current;
+            display_Text.text = avgFrameRate.ToString() + " FPS";
+        }
     }
 }
