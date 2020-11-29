@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using Assets.Scripts.Core;
+using Mirror;
 using UnityEngine;
 
 namespace Assets.Scripts.Multiplayer
@@ -7,18 +8,23 @@ namespace Assets.Scripts.Multiplayer
     {
 
         private InputComponent inputComponent;
+        private HandComponent handComponent;
+        private HealthComponent healthComponent;
 
         private void Start()
         {
             inputComponent = GetComponent<InputComponent>();
-
+            handComponent = GetComponent<HandComponent>();
             inputComponent.OnCardUsageAction += OnCardUsage;
 
         }
 
-        void OnCardUsage(int i)
+        void OnCardUsage(int i) => CmdCheckResources(handComponent.inventory[i]);
+
+        [Command]
+        public void CmdCheckResources(Card card)
         {
-            Debug.Log("CardUsage" + i);
+
         }
 
     }
