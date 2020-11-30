@@ -10,6 +10,14 @@ namespace Assets.Scripts.Multiplayer
         public System.Action<Card, GameObject> OnMinionTargetingSuccessAction;
         public System.Action<Card, GameObject> OnSummonerTargetingSuccessAction;
 
+        private CasterComponent casterComponent;
+
+
+        private void Start()
+        {
+            casterComponent = GetComponent<CasterComponent>();
+        }
+
         private void Awake()
         {
             OnPointTargetingSuccessAction += SpawnComponentPoint;
@@ -30,11 +38,12 @@ namespace Assets.Scripts.Multiplayer
         {
             if (card.traversalType == TraversalType.FromCasterToPos)
             {
-                //spawn at self.
+                GameObject spellEffect = Instantiate(card.spellEffect.prefab, casterComponent.ProjectileTransform, false);
+                NetworkServer.Spawn(spellEffect, gameObject);
             }
             if (card.traversalType == TraversalType.SpawnAtPoint)
             {
-                //spawn at point
+                Debug.Log("Spawn at point.");
             }
 
         }

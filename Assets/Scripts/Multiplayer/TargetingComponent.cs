@@ -41,6 +41,9 @@ namespace Assets.Scripts.Multiplayer
         [Client]
         void DetectTarget(Card card)
         {
+
+            Debug.Log("DetectTarget");
+
             isTargeting = true;
 
             switch (card.cardType)
@@ -140,12 +143,12 @@ namespace Assets.Scripts.Multiplayer
         {
             while (isTargeting)
             {
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     RaycastHit hit = new RaycastHit();
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundMask))
                     {
-
                         spawningComponent.OnPointTargetingSuccessAction?.Invoke(card, hit.point);
 
                         isTargeting = false;

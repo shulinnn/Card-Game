@@ -20,6 +20,8 @@ namespace Assets.Scripts.Multiplayer
             manaComponent = GetComponent<ManaComponent>();
             healthComponent = GetComponent<HealthComponent>();
             targetingComponent = GetComponent<TargetingComponent>();
+
+            ///Listen to Input Action
             inputComponent.OnCardUsageAction += OnCardUsage;
 
         }
@@ -47,10 +49,12 @@ namespace Assets.Scripts.Multiplayer
                     {
                         if (card.cardCost <= manaComponent.mana)
                         {
+                            /// We have enough mana
                             TargetInitializeTargeting(card);
                         }
                         else
                         {
+                            Debug.Log("Not enough mana.");
                             return;
                         }
                     }

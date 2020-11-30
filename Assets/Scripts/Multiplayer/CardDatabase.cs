@@ -32,7 +32,7 @@ namespace Assets.Scripts.Multiplayer
             get
             {
                 if (m_Instance == null)
-                    m_Instance = Resources.Load("Card Database") as CardDatabase;
+                    m_Instance = Resources.Load("CardDatabase") as CardDatabase;
 
                 return m_Instance;
             }
