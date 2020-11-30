@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using Mirror;
-using Assets.Scripts.Core;
-using System.Collections.Generic;
+﻿using Mirror;
 
 namespace Assets.Scripts.SpellEffects
 {
