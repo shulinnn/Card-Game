@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Core;
+using Assets.Scripts.SpellEffects;
 using Mirror;
 using UnityEngine;
 
@@ -38,12 +39,12 @@ namespace Assets.Scripts.Multiplayer
         {
             if (card.traversalType == TraversalType.FromCasterToPos)
             {
-                GameObject spellEffect = Instantiate(card.spellEffect.prefab,casterComponent.ProjectileTransform.position,Quaternion.identity);
+                GameObject spellEffect = Instantiate(card.spellEffect.prefab, casterComponent.ProjectileTransform.position, Quaternion.identity);
                 NetworkServer.Spawn(spellEffect, gameObject);
             }
             if (card.traversalType == TraversalType.SpawnAtPoint)
             {
-                GameObject spellEffect = Instantiate(card.spellEffect.prefab,casterComponent.BottomTransform,false);
+                GameObject spellEffect = Instantiate(card.spellEffect.prefab, point, Quaternion.identity);
                 NetworkServer.Spawn(spellEffect, gameObject);
             }
 

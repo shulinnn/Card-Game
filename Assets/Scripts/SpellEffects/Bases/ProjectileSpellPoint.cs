@@ -1,73 +1,11 @@
 ﻿using UnityEngine;
 using Mirror;
 using Assets.Scripts.Core;
-using Assets.Scripts.SpellEffects.Interfaces;
 
 namespace Assets.Scripts.SpellEffects.Bases
 {
-    public class ProjectileSpellPoint : SpellEffectBase, IPointSpell, ICardSpell, ISpellProjectile
+    public class ProjectileSpellPoint : SpellEffectBase
     {
-        [SerializeField]
-        private Vector3 _targetPoint;
-        [SerializeField]
-        private Card _card;
-        /// <summary>
-        /// Animation curve to used for projectile path => we will be animating it on the Y Axis so it doesnt look weird.
-        /// </summary>
-        [SerializeField]
-        private AnimationCurve _animationCurve;
-
-        /// <summary>
-        /// Cache our start position at initialization to avoid issues
-        /// </summary>
-        [SerializeField]
-        private Vector3 _position;
-
-        #region Properties
-
-        public Vector3 TargetPoint
-        {
-            get
-            {
-                return _targetPoint;
-            }
-            set
-            {
-                _targetPoint = value;
-            }
-        }
-
-        public Card Card
-        {
-            get
-            {
-                return _card;
-            }
-            set
-            {
-                _card = value;
-            }
-        }
-
-        public AnimationCurve AnimationCurve
-        {
-            get
-            {
-                return _animationCurve;
-            }
-            set
-            {
-                _animationCurve = value;
-            }
-        }
-
-        #endregion
-
-        [ServerCallback]
-        private void Start()
-        {
-            _position = transform.position;
-        }
 
     }
 }
