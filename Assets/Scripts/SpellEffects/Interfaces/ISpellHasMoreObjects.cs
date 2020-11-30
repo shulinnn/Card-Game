@@ -5,6 +5,6 @@ namespace Assets.Scripts.SpellEffects
 {
     interface ISpellHasMoreObjects
     {
-        List<GameObject> effectObjects { get; set; }
+        List<GameObject> effectObjects { get; }
     }
 }
