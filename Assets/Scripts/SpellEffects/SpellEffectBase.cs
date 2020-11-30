@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using Assets.Scripts.Core;
+using Mirror;
 using UnityEngine;
 
 namespace Assets.Scripts.SpellEffects
@@ -6,23 +7,11 @@ namespace Assets.Scripts.SpellEffects
 
     public class SpellEffectBase : NetworkBehaviour
     {
-        public virtual Vector3 _targetPoint;
-        [SerializeField]
+        public Vector3 _targetPoint;
+        public Transform _targetTransform;
         private Card _card;
-        /// <summary>
-        /// Animation curve to used for projectile path => we will be animating it on the Y Axis so it doesnt look weird.
-        /// </summary>
         [SerializeField]
         private AnimationCurve _animationCurve;
-
-        /// <summary>
-        /// Cache our start position at initialization to avoid issues
-        /// </summary>
-        [SerializeField]
-        private Vector3 _position;
-
-        [SerializeField]
-        private float _projectileSpeed;
 
         #region Base methods
 

@@ -127,15 +127,14 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   _targetPoint: {x: 0, y: 0, z: 0}
-  _card: {fileID: 0}
+  _targetTransform: {fileID: 0}
   _animationCurve:
     serializedVersion: 2
     m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _position: {x: 0, y: 0, z: 0}
-  _projectileSpeed: 0
+  _projectileSpeed: 10
 --- !u!114 &617000143137096022
 MonoBehaviour:
   m_ObjectHideFlags: 0

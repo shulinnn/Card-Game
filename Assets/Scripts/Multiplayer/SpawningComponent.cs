@@ -40,6 +40,7 @@ namespace Assets.Scripts.Multiplayer
             if (card.traversalType == TraversalType.FromCasterToPos)
             {
                 GameObject spellEffect = Instantiate(card.spellEffect.prefab, casterComponent.ProjectileTransform.position, Quaternion.identity);
+                spellEffect.GetComponent<SpellEffectBase>()._targetPoint = point;
                 NetworkServer.Spawn(spellEffect, gameObject);
             }
             if (card.traversalType == TraversalType.SpawnAtPoint)
