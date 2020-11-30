@@ -38,12 +38,13 @@ namespace Assets.Scripts.Multiplayer
         {
             if (card.traversalType == TraversalType.FromCasterToPos)
             {
-                GameObject spellEffect = Instantiate(card.spellEffect.prefab, casterComponent.ProjectileTransform, false);
+                GameObject spellEffect = Instantiate(card.spellEffect.prefab,casterComponent.ProjectileTransform.position,Quaternion.identity);
                 NetworkServer.Spawn(spellEffect, gameObject);
             }
             if (card.traversalType == TraversalType.SpawnAtPoint)
             {
-                Debug.Log("Spawn at point.");
+                GameObject spellEffect = Instantiate(card.spellEffect.prefab,casterComponent.BottomTransform,false);
+                NetworkServer.Spawn(spellEffect, gameObject);
             }
 
         }
