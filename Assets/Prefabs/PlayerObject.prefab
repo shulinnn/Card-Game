@@ -125,6 +125,9 @@ GameObject:
   - component: {fileID: 3850374103390748062}
   - component: {fileID: -45237723505231396}
   - component: {fileID: -2212949795250136987}
+  - component: {fileID: 1503636475717989365}
+  - component: {fileID: 7201431923365530126}
+  - component: {fileID: 6738828490260428330}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Player
@@ -228,6 +231,57 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9cfb683277769f44afd3e17356c1c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &1503636475717989365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758965884315555710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bb245903e41664a9d9a19989e53679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  minionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  summonerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &7201431923365530126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758965884315555710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b069e6b8269457947b323c59b824456a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &6738828490260428330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758965884315555710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ceef17d0df8434aab4ca57343eeb91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
