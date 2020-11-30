@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6290f3f345e91f54d8a7efc33f4137fc, type: 3}
   m_Name: Basic Minion Spell
   m_EditorClassIdentifier: 
-  cardDescription: 
-  resourceType: 0
-  cardCost: 0
+  cardDescription: Basic Minion Spell
+  resourceType: 1
+  cardCost: 20
   cardIcon: {fileID: 0}
   targetType: 0
-  traversalType: 0
+  traversalType: 1
   cardType: 0
-  cardActions: []
+  cardActions:
+  - actionType: 1
+    actionTarget: 1
+    value: 20
   spellEffect:
     lifetime: 0
     speed: 0
