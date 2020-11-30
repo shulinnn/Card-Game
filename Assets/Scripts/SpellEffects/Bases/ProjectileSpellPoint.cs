@@ -17,6 +17,12 @@ namespace Assets.Scripts.SpellEffects.Bases
         [SerializeField]
         private AnimationCurve _animationCurve;
 
+        /// <summary>
+        /// Cache our start position at initialization to avoid issues
+        /// </summary>
+        [SerializeField]
+        private Vector3 _position;
+
         #region Properties
 
         public Vector3 TargetPoint
@@ -56,5 +62,12 @@ namespace Assets.Scripts.SpellEffects.Bases
         }
 
         #endregion
+
+        [ServerCallback]
+        private void Start()
+        {
+            _position = transform.position;
+        }
+
     }
 }
