@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.SpellEffects
+namespace Assets.Scripts.SpellEffects.Interfaces
 {
     interface ITargetSpell
     {

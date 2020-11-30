@@ -2,8 +2,8 @@
 
 namespace Assets.Scripts.SpellEffects.Interfaces
 {
-    interface IPointSpell
+    interface ISpellProjectile
     {
-        Vector3  TargetPoint { get; set; }
+        AnimationCurve AnimationCurve { get; set; }
     }
 }

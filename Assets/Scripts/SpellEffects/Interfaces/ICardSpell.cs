@@ -1,9 +1,9 @@
 ﻿using Assets.Scripts.Core;
 
-namespace Assets.Scripts.SpellEffects
+namespace Assets.Scripts.SpellEffects.Interfaces
 {
     interface ICardSpell
     {
-        Card card { get; set; }
+        Card Card { get; set; }
     }
 }
