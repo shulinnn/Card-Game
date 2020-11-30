@@ -10,7 +10,7 @@ namespace Assets.Scripts.Multiplayer
         public System.Action<int> OnCardUsageAction;
 
         [SerializeField]
-        private KeyCode[] cardKeyCodes;
+        private KeyCode[] cardKeyCodes = null;
 
         private void Update()
         {
