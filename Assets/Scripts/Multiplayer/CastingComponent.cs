@@ -11,6 +11,7 @@ namespace Assets.Scripts.Multiplayer
         private HandComponent handComponent;
         private HealthComponent healthComponent;
         private ManaComponent manaComponent;
+        private TargetingComponent targetingComponent;
 
         private void Start()
         {
@@ -18,7 +19,7 @@ namespace Assets.Scripts.Multiplayer
             handComponent = GetComponent<HandComponent>();
             manaComponent = GetComponent<ManaComponent>();
             healthComponent = GetComponent<HealthComponent>();
-
+            targetingComponent = GetComponent<TargetingComponent>();
             inputComponent.OnCardUsageAction += OnCardUsage;
 
         }
@@ -34,11 +35,11 @@ namespace Assets.Scripts.Multiplayer
                     {
                         if(card.cardCost <= healthComponent.health)
                         {
-                            //pass
+                            TargetInitializeTargeting(card);
                         }
                         else
                         {
-                            //not enough health..
+                            return;
                         }
                     }
                     break;
@@ -46,11 +47,11 @@ namespace Assets.Scripts.Multiplayer
                     {
                         if (card.cardCost <= manaComponent.mana)
                         {
-                            //pass
+                            TargetInitializeTargeting(card);
                         }
                         else
                         {
-                            //not enough health..
+                            return;
                         }
                     }
                     break;
@@ -58,6 +59,9 @@ namespace Assets.Scripts.Multiplayer
                     break;
             }
         }
+
+        [TargetRpc]
+        public void TargetInitializeTargeting(Card card) => targetingComponent.Initialize(card);
 
     }
 }
