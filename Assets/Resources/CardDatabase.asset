@@ -12,5 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266017529dea66d4f96d1e5e3811fa6f, type: 3}
   m_Name: CardDatabase
   m_EditorClassIdentifier: 
-  cardDatabase: []
-  databases: []
+  AllCardsInGame:
+  - {fileID: 11400000, guid: 4d491966195403c4f9aa7f4e7c0583e1, type: 2}
+  - {fileID: 11400000, guid: 22cafd5982e97cd4a843b91dcee27432, type: 2}
+  - {fileID: 11400000, guid: 3ce7a53e13635a04e98eaee335fc6597, type: 2}
+  databases:
+  - Name: Test
+    Cards:
+    - {fileID: 11400000, guid: 22cafd5982e97cd4a843b91dcee27432, type: 2}
