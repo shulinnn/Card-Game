@@ -26,9 +26,10 @@ MonoBehaviour:
   spellEffect:
     lifetime: 0
     speed: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 3082090639411854896, guid: 323d682855bfc174c9116628805148bc,
+      type: 3}
   spellData:
-    radius: 0
+    radius: 5
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 2048
