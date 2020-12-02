@@ -9,12 +9,14 @@ namespace Assets.Scripts.SpellEffects.Spells
 
     public class BasicPointSpell : ProjectileSpellPoint
     {
+        /// <summary>
+        /// Will get called whether our projectile travels to its destination
+        /// </summary>
+        /// <param name="gObjects"></param>
         public override void OnProjectileHit(GameObject gObject)
         {
-
             base.OnProjectileHit(gObject);
-
-            Debug.Log(gObject.name);
+            Debug.Log("Basic Point Spell Hit");
         }
     }
 }
