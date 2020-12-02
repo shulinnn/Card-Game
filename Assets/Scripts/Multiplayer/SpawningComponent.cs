@@ -41,11 +41,13 @@ namespace Assets.Scripts.Multiplayer
             {
                 GameObject spellEffect = Instantiate(card.spellEffect.prefab, casterComponent.ProjectileTransform.position, Quaternion.identity);
                 spellEffect.GetComponent<SpellEffectBase>()._targetPoint = point;
+                spellEffect.GetComponent<SpellEffectBase>()._card = card;
                 NetworkServer.Spawn(spellEffect, gameObject);
             }
             if (card.traversalType == TraversalType.SpawnAtPoint)
             {
                 GameObject spellEffect = Instantiate(card.spellEffect.prefab, point, Quaternion.identity);
+                spellEffect.GetComponent<SpellEffectBase>()._targetPoint = point;
                 NetworkServer.Spawn(spellEffect, gameObject);
             }
 
