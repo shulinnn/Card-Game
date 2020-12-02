@@ -9,9 +9,9 @@ namespace Assets.Scripts.SpellEffects
     {
         public Vector3 _targetPoint;
         public Transform _targetTransform;
-        private Card _card;
+        public Card _card;
         [SerializeField]
-        private AnimationCurve _animationCurve;
+        public AnimationCurve _animationCurve;
 
         #region Base methods
 
