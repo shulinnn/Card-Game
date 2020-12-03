@@ -54,10 +54,15 @@ namespace Assets.Scripts.SpellEffects.Bases
                     {
                         foreach (Collider collider in colliders)
                         {
-                            if (!hasStarted)
+                            if (!hasStarted && !collider.GetComponent<NetworkIdentity>().hasAuthority)
+                            {
+                                Debug.Log("Breakpoint");
                                 StartCoroutine(OnProjectileHitEnumerator(collider.gameObject));
+                            }
                             else
+                            {
                                 return;
+                            }
                         }
                     }
                     else

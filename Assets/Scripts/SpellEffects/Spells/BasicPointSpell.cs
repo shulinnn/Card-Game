@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.SpellEffects.Bases;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Assets.Scripts.Core;
 
 namespace Assets.Scripts.SpellEffects.Spells
 {
@@ -16,7 +15,9 @@ namespace Assets.Scripts.SpellEffects.Spells
         public override void OnProjectileHit(GameObject gObject)
         {
             base.OnProjectileHit(gObject);
-            Debug.Log("Basic Point Spell Hit");
+
+            Debug.Log(gObject.name);
+
         }
     }
 }

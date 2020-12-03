@@ -25,7 +25,7 @@ MonoBehaviour:
     value: 20
   spellEffect:
     lifetime: 0
-    speed: 0
+    speed: 2
     prefab: {fileID: 3082090639411854896, guid: 323d682855bfc174c9116628805148bc,
       type: 3}
   spellData:

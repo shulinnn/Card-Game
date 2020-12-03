@@ -85,7 +85,7 @@ namespace Assets.Scripts.Core
         public TargetType targetType;
         public TraversalType traversalType;
         public CardType cardType;
-        public Action[] cardActions;
+        public float cardValue;
         [Header("Spell Effect Related")]
         public SpellEffectObject spellEffect;
         [Header("Spell Effect Data")]
