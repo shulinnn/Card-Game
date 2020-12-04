@@ -12,17 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6290f3f345e91f54d8a7efc33f4137fc, type: 3}
   m_Name: Basic Point Spell
   m_EditorClassIdentifier: 
-  cardDescription: Basic Point Spell
+  cardDescription: Basic Point Spell - Deals 20 damage to all enemy minions nearby
   resourceType: 1
   cardCost: 20
   cardIcon: {fileID: 0}
   targetType: 3
   traversalType: 0
   cardType: 0
-  cardActions:
-  - actionType: 1
-    actionTarget: 1
-    value: 20
+  cardValue: 0
   spellEffect:
     lifetime: 0
     speed: 2
