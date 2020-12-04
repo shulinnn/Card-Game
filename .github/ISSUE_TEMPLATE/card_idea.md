@@ -2,7 +2,7 @@
 name: Card Idea Request
 about: Suggest an card idea for this project
 title: ''
-labels: ''
+labels: 'card'
 assignees: ''
 ---
 
