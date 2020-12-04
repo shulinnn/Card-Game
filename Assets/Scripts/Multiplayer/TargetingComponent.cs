@@ -90,29 +90,41 @@ namespace Assets.Scripts.Multiplayer
         #region Coroutines
         IEnumerator WaitForMinion(Card card)
         {
-            if (Input.GetMouseButtonDown(0))
+
+            while (isTargeting)
             {
-                RaycastHit hit = new RaycastHit();
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, minionMask))
+
+                Debug.Log("Inside IEnum");
+
+                if (Input.GetMouseButtonDown(0))
                 {
 
-                    /// We have successfully found an target => invoke spawning thingy.
-                    /// 
-                    isTargeting = false;
-                    yield break;
+                    Debug.Log("LMB");
+
+                    RaycastHit hit = new RaycastHit();
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, minionMask))
+                    {
+
+                        Debug.Log("Succ Raycast");
+
+                        spawningComponent.OnMinionTargetingSuccessAction?.Invoke(card, hit.collider.gameObject);
+                        Debug.Log("After.");
+                        isTargeting = false;
+                        yield break;
+                    }
+                    else
+                    {
+                        isTargeting = false;
+                        yield break;
+                    }
                 }
-                else
+                else if (Input.GetMouseButtonDown(1))
                 {
                     isTargeting = false;
                     yield break;
                 }
+                yield return null;
             }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                isTargeting = false;
-                yield break;
-            }
-            yield return null;
         }
 
         IEnumerator WaitForSummoner(Card card)
@@ -122,6 +134,7 @@ namespace Assets.Scripts.Multiplayer
                 RaycastHit hit = new RaycastHit();
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, summonerMask))
                 {
+                    spawningComponent.OnSummonerTargetingSuccessAction?.Invoke(card, hit.collider.gameObject);
                     isTargeting = false;
                     yield break;
                 }
