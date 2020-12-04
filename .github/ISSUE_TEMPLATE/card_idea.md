@@ -10,7 +10,7 @@ assignees: ''
 
 **Card Description**
 
-**Card Deck (Can be existing or a new one)
+**Card Deck (Can be existing or a new one)**
 
 **Card Cost**
 
