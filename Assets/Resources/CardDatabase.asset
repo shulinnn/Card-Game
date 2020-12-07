@@ -16,6 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d491966195403c4f9aa7f4e7c0583e1, type: 2}
   - {fileID: 11400000, guid: 22cafd5982e97cd4a843b91dcee27432, type: 2}
   - {fileID: 11400000, guid: 3ce7a53e13635a04e98eaee335fc6597, type: 2}
+  - {fileID: 11400000, guid: 059a9fac61fb5ff48a81c2a86391f6f6, type: 2}
   databases:
   - Name: Test
     Cards:
