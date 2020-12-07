@@ -7,5 +7,6 @@ namespace Assets.Scripts.Multiplayer
     {
         public Transform ProjectileTransform;
         public Transform BottomTransform;
+        public Transform minionTransform;
     }
 }
