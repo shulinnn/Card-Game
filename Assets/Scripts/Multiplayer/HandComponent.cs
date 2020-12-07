@@ -21,6 +21,7 @@ namespace Assets.Scripts.Multiplayer
             inventory.Add(CardDatabase.Instance.AllCardsInGame[0]);
             inventory.Add(CardDatabase.Instance.AllCardsInGame[1]);
             inventory.Add(CardDatabase.Instance.AllCardsInGame[2]);
+            inventory.Add(CardDatabase.Instance.AllCardsInGame[3]);
         }
 
 
