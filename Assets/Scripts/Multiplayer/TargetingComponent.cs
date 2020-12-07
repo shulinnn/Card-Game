@@ -74,12 +74,12 @@ namespace Assets.Scripts.Multiplayer
                     break;
                 case CardType.Enchantment:
                     {
-                        ///
+                        StartCoroutine(WaitForMinion(card));
                     }
                     break;
                 case CardType.Summon:
                     {
-                        ///
+                        spawningComponent.OnSummonAction?.Invoke(card);
                     }
                     break;
                 default:
@@ -106,8 +106,16 @@ namespace Assets.Scripts.Multiplayer
                     {
 
                         Debug.Log("Succ Raycast");
+                        if(card.cardType == CardType.Spell)
+                        {
+                            spawningComponent.OnMinionTargetingSuccessAction?.Invoke(card, hit.collider.gameObject);
 
-                        spawningComponent.OnMinionTargetingSuccessAction?.Invoke(card, hit.collider.gameObject);
+                        }
+
+                        if(card.cardType == CardType.Enchantment)
+                        {
+                            spawningComponent.OnEnchantmentTargetingSuccessAction?.Invoke(card, hit.collider.gameObject);
+                        }
                         Debug.Log("After.");
                         isTargeting = false;
                         yield break;
@@ -129,27 +137,30 @@ namespace Assets.Scripts.Multiplayer
 
         IEnumerator WaitForSummoner(Card card)
         {
-            if (Input.GetMouseButtonDown(0))
+            while (isTargeting)
             {
-                RaycastHit hit = new RaycastHit();
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, summonerMask))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    spawningComponent.OnSummonerTargetingSuccessAction?.Invoke(card, hit.collider.gameObject);
+                    RaycastHit hit = new RaycastHit();
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, summonerMask))
+                    {
+                        spawningComponent.OnSummonerTargetingSuccessAction?.Invoke(card, hit.collider.gameObject);
+                        isTargeting = false;
+                        yield break;
+                    }
+                    else
+                    {
+                        isTargeting = false;
+                        yield break;
+                    }
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
                     isTargeting = false;
                     yield break;
                 }
-                else
-                {
-                    isTargeting = false;
-                    yield break;
-                }
+                yield return null;
             }
-            else if (Input.GetMouseButtonDown(1))
-            {
-                isTargeting = false;
-                yield break;
-            }
-            yield return null;
         }
 
         IEnumerator WaitForPoint(Card card)
