@@ -17,15 +17,16 @@ MonoBehaviour:
   cardCost: 20
   cardIcon: {fileID: 0}
   targetType: 1
-  traversalType: 0
+  traversalType: 1
   cardType: 0
-  cardValue: 0
+  cardValue: 20
   spellEffect:
-    lifetime: 0
-    speed: 2
-    prefab: {fileID: 0}
+    lifetime: 2
+    speed: 0
+    prefab: {fileID: 7745092322451782456, guid: 00c4586b35d0b144680a0fe120c9795d,
+      type: 3}
   spellData:
     radius: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 4096
